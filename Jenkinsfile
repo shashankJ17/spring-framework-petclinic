@@ -50,4 +50,23 @@ pipeline {
             }
         }
     }
+    post {
+    success {
+        mail(
+            to: 'shashankjayram2004@gmail.com',
+            cc: 'leelavathijayram298@gmail.com',
+            subject: 'Build Successful',
+            body: 'The Jenkins pipeline completed successfully.'
+        )
+    }
+
+    failure {
+        mail(
+            to: 'shashankjayram2004@gmail.com',
+            cc: 'leelavathijayram298@gmail.com',
+            subject: 'Build Failed',
+            body: 'The Jenkins pipeline failed. Please check the Jenkins console output.'
+        )
+    }
+}
 }
